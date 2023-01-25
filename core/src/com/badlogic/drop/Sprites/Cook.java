@@ -16,8 +16,8 @@ public class Cook extends Sprite {
     public Cook(World world, PlayScreen screen) {
         this.world = world;
         defineCook();
-        cookTexture = new Texture("bucket.png");
-        setBounds(0,0,16/PiazzaPanic.PPM, 16/PiazzaPanic.PPM);
+        cookTexture = new Texture("cook.png");
+        setBounds(0,0,128 / PiazzaPanic.PPM, 128 / PiazzaPanic.PPM);
         setRegion(cookTexture);
     }
 
