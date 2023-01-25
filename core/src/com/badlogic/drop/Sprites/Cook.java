@@ -5,7 +5,9 @@ import com.badlogic.drop.Screens.PlayScreen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.sun.javafx.geom.Edge;
 
 public class Cook extends Sprite {
     public World world;
@@ -13,8 +15,8 @@ public class Cook extends Sprite {
     Texture cookTexture;
 
 
-    public Cook(World world, PlayScreen screen) {
-        this.world = world;
+    public Cook(PlayScreen screen) {
+        this.world = screen.getWorld();
         defineCook();
         cookTexture = new Texture("cook.png");
         setBounds(0,0,128 / PiazzaPanic.PPM, 128 / PiazzaPanic.PPM);
@@ -32,11 +34,19 @@ public class Cook extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(5 / PiazzaPanic.PPM);
+        shape.setRadius(60 / PiazzaPanic.PPM);
+        fdef.filter.categoryBits = PiazzaPanic.COOK_BIT;
+        fdef.filter.maskBits = PiazzaPanic.DEFAULT_BIT | PiazzaPanic.COUNTER_BIT | PiazzaPanic.PANTRY_BIT | PiazzaPanic.CUTTINGSTATION_BIT | PiazzaPanic.FRYINGSTATION_BIT | PiazzaPanic.SERVINGSTATION_BIT;
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
 
+        EdgeShape head = new EdgeShape();
+        head.set(new Vector2(-20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM), new Vector2(20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM));
+        fdef.shape = head;
+        fdef.isSensor = true;
+
+        b2body.createFixture(fdef).setUserData("head");
     }
 
 

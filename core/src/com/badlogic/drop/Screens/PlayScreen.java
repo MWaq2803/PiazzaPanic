@@ -4,6 +4,7 @@ import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Scenes.Hud;
 import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.drop.Tools.B2WorldCreator;
+import com.badlogic.drop.Tools.WorldContactListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -55,9 +56,11 @@ public class PlayScreen implements Screen {
         world = new World(new Vector2(0, 0), true);
         b2dr = new Box2DDebugRenderer();
 
-        new B2WorldCreator(world,map);
+        new B2WorldCreator(this);
 
-        player = new Cook(world, this);
+        player = new Cook(this);
+
+        world.setContactListener(new WorldContactListener());
 
     }
 
@@ -86,6 +89,7 @@ public class PlayScreen implements Screen {
         world.step(1/60f, 6, 2);
 
         player.update(dt);
+        hud.update(dt);
 
         gamecam.position.x = player.b2body.getPosition().x;
         gamecam.position.y = player.b2body.getPosition().y;
@@ -120,6 +124,14 @@ public class PlayScreen implements Screen {
     public void resize(int width, int height) {
         gamePort.update(width,height);
 
+    }
+
+    public TiledMap getMap() {
+        return map;
+    }
+
+    public World getWorld() {
+        return world;
     }
 
     @Override
