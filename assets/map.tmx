@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="54">
+ <tileset firstgid="1" source="terrain.tsx"/>
+ <layer id="1" name="Background" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt3KERwlAURcGYz9AH7VBCykFQUspDxSAQYQhnkhXH3zfr33ydpnnnbpftnWHTc+zbN7cfeROP1qZ/ebx3/9CZNvFobeLR2sSjtYlHaxOP1iYerU08Wpt4tDbxaG3i0drEo7WJR2sTj9am1WMZKsSjFY9WPFrxaLV6PIYK8WjFoxWPVjxa8WjFoxWPVjxa8WjFoxWPVjxa8WjFoxWPVjxa8WjFoxWPVjxa8WjFoxWPVjxa8WjFoxWPVjxa8WjFoxWPVjxa8WjFoxWPVjxabf1nrd/1AlA8jbc=
+  </data>
+ </layer>
+ <layer id="2" name="Graphics" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt2rEJADEMBEFH34j77/GLsDALngHFF2yqtQAAAAAAAAAA4Nz+Zo8zerTo0aJHix4terTo0aIHAAAAAAAAAHDT9K/C5D/Da7t6tHb1aO3q0drVo7WrR2tXj9auHq1dPVq7tPzaWH0W
+  </data>
+ </layer>
+ <objectgroup id="8" name="ServingStation">
+  <object id="32" x="160" y="352" width="320" height="128"/>
+ </objectgroup>
+ <objectgroup id="5" name="Pantry">
+  <object id="29" x="16" y="800" width="464" height="144"/>
+ </objectgroup>
+ <objectgroup id="6" name="CuttingStation">
+  <object id="30" x="640" y="800" width="320" height="144"/>
+ </objectgroup>
+ <objectgroup id="7" name="FryingStation">
+  <object id="31" x="1120" y="800" width="320" height="144"/>
+ </objectgroup>
+ <objectgroup id="10" name="Counter">
+  <object id="47" x="16" y="272" width="1568" height="80"/>
+ </objectgroup>
+ <objectgroup id="11" name="Wall">
+  <object id="48" x="1583.41" y="0" width="16.5946" height="961.106"/>
+  <object id="49" x="0" y="944" width="1600" height="16"/>
+  <object id="50" x="0" y="0" width="16" height="960"/>
+  <object id="51" x="0" y="0" width="464" height="16"/>
+  <object id="52" x="704" y="0" width="352" height="16"/>
+  <object id="53" x="1296" y="0" width="288" height="16"/>
+ </objectgroup>
+</map>
