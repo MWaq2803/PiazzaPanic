@@ -4,7 +4,6 @@ import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Scenes.Hud;
 import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.drop.Tools.B2WorldCreator;
-import com.badlogic.drop.Tools.WorldContactListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -59,8 +58,6 @@ public class PlayScreen implements Screen {
         new B2WorldCreator(this);
 
         player = new Cook(this);
-
-        world.setContactListener(new WorldContactListener());
 
     }
 

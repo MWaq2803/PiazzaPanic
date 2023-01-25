@@ -10,7 +10,6 @@ public class FryingStation extends InteractiveTileObject {
     public FryingStation(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
         fixture.setUserData(this);
-        setCategoryFilter(PiazzaPanic.FRYINGSTATION_BIT);
     }
 
     @Override

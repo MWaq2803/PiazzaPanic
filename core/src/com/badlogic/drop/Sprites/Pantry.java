@@ -10,7 +10,6 @@ public class Pantry extends InteractiveTileObject{
     public Pantry(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
         fixture.setUserData(this);
-        setCategoryFilter(PiazzaPanic.PANTRY_BIT);
     }
 
     @Override

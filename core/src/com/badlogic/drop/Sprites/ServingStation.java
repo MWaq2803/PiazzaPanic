@@ -11,7 +11,6 @@ public class ServingStation extends InteractiveTileObject {
     public ServingStation(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
         fixture.setUserData(this);
-        setCategoryFilter(PiazzaPanic.SERVINGSTATION_BIT);
     }
 
     @Override

@@ -11,7 +11,6 @@ public class CuttingStation extends InteractiveTileObject {
     public CuttingStation(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
         fixture.setUserData(this);
-        setCategoryFilter(PiazzaPanic.CUTTINGSTATION_BIT);
     }
 
     @Override

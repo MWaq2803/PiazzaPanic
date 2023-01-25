@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.sun.javafx.geom.Edge;
 
 public class Cook extends Sprite {
     public World world;
@@ -35,8 +34,6 @@ public class Cook extends Sprite {
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
         shape.setRadius(60 / PiazzaPanic.PPM);
-        fdef.filter.categoryBits = PiazzaPanic.COOK_BIT;
-        fdef.filter.maskBits = PiazzaPanic.DEFAULT_BIT | PiazzaPanic.COUNTER_BIT | PiazzaPanic.PANTRY_BIT | PiazzaPanic.CUTTINGSTATION_BIT | PiazzaPanic.FRYINGSTATION_BIT | PiazzaPanic.SERVINGSTATION_BIT;
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
