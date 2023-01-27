@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="55">
+ <tileset firstgid="1" source="terrain.tsx"/>
+ <layer id="1" name="Background" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt3LENwjAARUGaIPZgHUbIOBSMxHhUKaCgCEryQq54paVvXW2Pl9NpXLnreX5H2PQY1u2Xu//zJh6tTVt5fHb70pE28Wht4tHaxKO1iUdrE4/WJh6tTTxam3i0NvFobeLR2sSjtYlHaxOP1qbJ4zmoEI9WPFrxaMWj1eRxH1SIRyserXi04tGKRyserXi04tGKRyserXi04tGKRyserXi04tGKRyserXi04tGKRyserXi04tGKRyserXi04tGKR6u9e9wCG3i8v63ceguP5YzXOMOjZchjP/FoxaPV3P+stVwv/DuMLw==
+  </data>
+ </layer>
+ <layer id="2" name="Graphics" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt2jFOwzAYgNFaVbv0GB25FBKsHIRDcCwOwMIlYEAdUEKUOHbtOFF4T/rVtEqXfHXdSjkcAAAAAAAAAACg3Nux7lDmdg0/Qp3Ro9ywx+vp7/PLuZvYeXrUEevRbzFsoscy9NgW31fbYj/fFr93AQAAAAAAAICWruf2k+r9WHdSrXn/xnVwL9vU8/71jJ2X8r6cHp+VJrfHV6W5t8fc42Xkuk4dz71W0uM7xKd/7uNpmR4PoZuleox9rucex46H7cbWSYsetxa/U7NHv0VKk5L1MfWZzu0x3C/23iPWplaPlPWS8t20Vo/n0M1e10fqXrLnHq32j9Qea6+P3Hmq1OMlpE2NHq0np8d/+//BdvwAwOO0Bg==
+  </data>
+ </layer>
+ <objectgroup id="11" name="Wall">
+  <object id="48" x="1583.41" y="0" width="16.5946" height="961.106"/>
+  <object id="49" x="0" y="944" width="1600" height="16"/>
+  <object id="50" x="0" y="0" width="16" height="960"/>
+  <object id="51" x="0" y="0" width="464" height="16"/>
+  <object id="52" x="704" y="0" width="352" height="16"/>
+  <object id="53" x="1296" y="0" width="288" height="16"/>
+ </objectgroup>
+ <objectgroup id="10" name="Counter">
+  <object id="47" x="16" y="272" width="1568" height="80"/>
+ </objectgroup>
+ <objectgroup id="5" name="Pantry">
+  <object id="29" x="16" y="800" width="464" height="144"/>
+ </objectgroup>
+ <objectgroup id="8" name="ServingStation">
+  <object id="32" x="160" y="352" width="320" height="128"/>
+ </objectgroup>
+ <objectgroup id="6" name="CuttingStation">
+  <object id="30" x="640" y="800" width="320" height="144"/>
+ </objectgroup>
+ <objectgroup id="7" name="FryingStation">
+  <object id="31" x="1120" y="800" width="320" height="144"/>
+ </objectgroup>
+</map>
