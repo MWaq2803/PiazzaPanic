@@ -4,6 +4,7 @@ import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Scenes.Hud;
 import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.drop.Tools.B2WorldCreator;
+import com.badlogic.drop.Tools.WorldContactListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -44,7 +45,7 @@ public class PlayScreen implements Screen {
         this.game = game;
         //texture = new Texture("bucket.png");
         gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(PiazzaPanic.V_WIDTH / PiazzaPanic.PPM, PiazzaPanic.V_HEIGHT / PiazzaPanic.PPM, gamecam);
+        gamePort = new FitViewport(PiazzaPanic.V_WIDTH / PiazzaPanic.PPM + 2, PiazzaPanic.V_HEIGHT / PiazzaPanic.PPM + 2, gamecam);
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();

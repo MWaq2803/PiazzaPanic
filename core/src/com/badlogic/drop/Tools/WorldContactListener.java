@@ -1,5 +1,6 @@
 package com.badlogic.drop.Tools;
 
+import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.gdx.physics.box2d.*;
 
 public class WorldContactListener implements ContactListener {
@@ -7,8 +8,8 @@ public class WorldContactListener implements ContactListener {
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
-
-
+        System.out.println("Collide!");
+        System.out.println(fixA);
     }
 
     @Override

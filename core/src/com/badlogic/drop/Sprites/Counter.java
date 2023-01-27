@@ -12,8 +12,5 @@ public class Counter extends InteractiveTileObject{
         fixture.setUserData(this);
     }
 
-    @Override
-    public void onHeadHit() {
 
-    }
 }

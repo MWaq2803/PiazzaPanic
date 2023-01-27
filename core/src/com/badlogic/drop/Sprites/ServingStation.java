@@ -13,8 +13,8 @@ public class ServingStation extends InteractiveTileObject {
         fixture.setUserData(this);
     }
 
-    @Override
-    public void onHeadHit() {
-
-    }
+//    @Override
+//    public void onCollision(Cook cook) {
+//        System.out.println("The cook collided with the serving station!");
+//    }
 }

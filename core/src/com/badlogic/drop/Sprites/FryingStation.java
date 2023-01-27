@@ -12,8 +12,8 @@ public class FryingStation extends InteractiveTileObject {
         fixture.setUserData(this);
     }
 
-    @Override
-    public void onHeadHit() {
-
-    }
+//    @Override
+//    public void onCollision(Cook cook) {
+//        System.out.println("The cook collided with the frying station");
+//    }
 }
