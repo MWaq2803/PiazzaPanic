@@ -59,6 +59,8 @@ public class PlayScreen implements Screen {
 
         player = new Cook(this);
 
+        world.setContactListener(new WorldContactListener());
+
     }
 
     @Override
