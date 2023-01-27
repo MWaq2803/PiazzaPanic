@@ -9,7 +9,7 @@ import com.badlogic.gdx.physics.box2d.*;
 public class Counter extends InteractiveTileObject{
     public Counter(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
-        fixture.setUserData(this);
+        fixture.setUserData("Counter");
     }
 
 

@@ -8,8 +8,21 @@ public class WorldContactListener implements ContactListener {
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
-        System.out.println("Collide!");
-        System.out.println(fixA);
+        if ((fixA.getUserData() == "cook" && fixB.getUserData() == "Pantry") || (fixA.getUserData() == "Pantry" && fixB.getUserData() == "cook")){
+            System.out.println("The cook has collided with the pantry!");
+        }
+        else if ((fixA.getUserData() == "cook" && fixB.getUserData() == "Counter") || (fixA.getUserData() == "Counter" && fixB.getUserData() == "cook")){
+            System.out.println("The cook has collided with the counter!");
+        }
+        else if ((fixA.getUserData() == "cook" && fixB.getUserData() == "CuttingStation") || (fixA.getUserData() == "CuttingStation" && fixB.getUserData() == "cook")){
+            System.out.println("The cook has collided with the cutting station!");
+        }
+        else if ((fixA.getUserData() == "cook" && fixB.getUserData() == "FryingStation") || (fixA.getUserData() == "FryingStation" && fixB.getUserData() == "cook")){
+            System.out.println("The cook has collided with the frying station!");
+        }
+        else if ((fixA.getUserData() == "cook" && fixB.getUserData() == "ServingStation") || (fixA.getUserData() == "ServingStation" && fixB.getUserData() == "cook")){
+            System.out.println("The cook has collided with the serving station!");
+        }
     }
 
     @Override

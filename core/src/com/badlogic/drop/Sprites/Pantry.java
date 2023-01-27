@@ -18,11 +18,6 @@ public class Pantry extends InteractiveTileObject{
         pantryContents.add("onions");
         pantryContents.add("patty");
         pantryContents.add("buns");
-        fixture.setUserData(this);
+        fixture.setUserData("Pantry");
     }
-
-//    @Override
-//    public void onCollision(Cook cook) {
-//        System.out.println("The cook collided with the pantry");
-//    }
 }

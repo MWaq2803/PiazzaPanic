@@ -36,14 +36,14 @@ public class Cook extends Sprite {
         shape.setRadius(60 / PiazzaPanic.PPM);
 
         fdef.shape = shape;
-        b2body.createFixture(fdef);
+        b2body.createFixture(fdef).setUserData("cook");
 /*this is pbb uneeded but i kept in so i can directly copy the tutorial - Oli*/
-        EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM), new Vector2(20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM));
-        fdef.shape = head;
-        fdef.isSensor = true;
-
-        b2body.createFixture(fdef).setUserData("head");
+//        EdgeShape head = new EdgeShape();
+//        head.set(new Vector2(-20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM), new Vector2(20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM));
+//        fdef.shape = head;
+//        fdef.isSensor = true;
+//
+//        b2body.createFixture(fdef).setUserData("head");
         /**/
     }
 

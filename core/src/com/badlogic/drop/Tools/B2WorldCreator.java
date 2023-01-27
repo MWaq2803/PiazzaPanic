@@ -57,8 +57,7 @@ public class B2WorldCreator {
         for (MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            Pantry pantry = new Pantry(screen, rect);
-            new CuttingStation(screen, rect, pantry);
+            new CuttingStation(screen, rect);
         }
 
         //create frying station

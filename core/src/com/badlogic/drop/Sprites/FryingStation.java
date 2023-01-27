@@ -9,11 +9,6 @@ import com.badlogic.gdx.physics.box2d.World;
 public class FryingStation extends InteractiveTileObject {
     public FryingStation(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
-        fixture.setUserData(this);
+        fixture.setUserData("FryingStation");
     }
-
-//    @Override
-//    public void onCollision(Cook cook) {
-//        System.out.println("The cook collided with the frying station");
-//    }
 }

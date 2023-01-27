@@ -18,10 +18,10 @@ import java.util.Scanner;
 public class CuttingStation extends InteractiveTileObject {
     Pantry pantry;
     //Interactive Tile Object effectively acts as the parents class
-    public CuttingStation(PlayScreen screen, Rectangle bounds, Pantry pantry) {
+    public CuttingStation(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
-        this.pantry = pantry;
-        fixture.setUserData(this);
+
+        fixture.setUserData("CuttingStation");
     }
 
 //    @Override

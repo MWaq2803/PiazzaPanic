@@ -10,11 +10,6 @@ import com.badlogic.gdx.physics.box2d.World;
 public class ServingStation extends InteractiveTileObject {
     public ServingStation(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
-        fixture.setUserData(this);
+        fixture.setUserData("ServingStation");
     }
-
-//    @Override
-//    public void onCollision(Cook cook) {
-//        System.out.println("The cook collided with the serving station!");
-//    }
 }
