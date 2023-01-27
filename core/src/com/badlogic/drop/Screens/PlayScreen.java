@@ -5,6 +5,7 @@ import com.badlogic.drop.Scenes.Hud;
 import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.drop.Tools.B2WorldCreator;
 import com.badlogic.drop.Tools.WorldContactListener;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -18,7 +19,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class PlayScreen implements Screen {
+public class PlayScreen extends Game implements Screen {
 
     private PiazzaPanic game;
     //Texture texture;
@@ -34,8 +35,6 @@ public class PlayScreen implements Screen {
     //Box2d variables
     private World world;
     private Box2DDebugRenderer b2dr;
-
-
     private Cook player;
 
 
@@ -116,7 +115,11 @@ public class PlayScreen implements Screen {
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+    }
 
+
+    @Override
+    public void create() {
 
     }
 

@@ -4,6 +4,7 @@ import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -22,7 +23,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 
-public class MainMenuScreen extends ApplicationAdapter implements Screen{
+public class MainMenuScreen extends ScreenAdapter {
 
     final PiazzaPanic game;
     OrthographicCamera camera;
