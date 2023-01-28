@@ -18,6 +18,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.badlogic.drop.Sprites.Customer;
 
 public class PlayScreen extends Game implements Screen {
 
@@ -36,6 +37,7 @@ public class PlayScreen extends Game implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
     private Cook player;
+    private Customer customer;
 
 
 
@@ -60,6 +62,8 @@ public class PlayScreen extends Game implements Screen {
         player = new Cook(this);
 
         world.setContactListener(new WorldContactListener());
+
+        customer = new Customer(this, .32f, .32f);
 
     }
 
@@ -88,6 +92,7 @@ public class PlayScreen extends Game implements Screen {
         world.step(1/60f, 6, 2);
 
         player.update(dt);
+        customer.update(dt);
         hud.update(dt);
 
         gamecam.position.x = player.b2body.getPosition().x;
@@ -111,6 +116,7 @@ public class PlayScreen extends Game implements Screen {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
+        customer.draw(game.batch);
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
@@ -139,7 +145,6 @@ public class PlayScreen extends Game implements Screen {
 
     @Override
     public void pause() {
-
     }
 
     @Override

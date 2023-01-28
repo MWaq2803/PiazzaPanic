@@ -14,6 +14,7 @@ public abstract class NPC extends Sprite{
         this.world = screen.getWorld();
         this.screen = screen;
         setPosition(x, y);
+        defineNPC();
     }
     protected abstract void defineNPC();
 }

@@ -7,10 +7,23 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.graphics.Texture;
+
 
 public class Customer extends NPC{
+    private float stateTime;
+    Texture customerTexture;
     public Customer(PlayScreen screen, float x, float y) {
         super(screen, x, y);
+        stateTime = 0;
+        customerTexture = new Texture("cook.png");
+        setBounds(getX(),getY(),128/PiazzaPanic.PPM,128/PiazzaPanic.PPM);
+        setRegion(customerTexture);
+    }
+
+    public void update(float dt){
+        stateTime += dt;
+        setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y-getHeight()/2);
     }
 
     @Override
@@ -26,13 +39,6 @@ public class Customer extends NPC{
         shape.setRadius(60 / PiazzaPanic.PPM);
 
         fdef.shape = shape;
-        b2body.createFixture(fdef);
-
-        EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM), new Vector2(20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM));
-        fdef.shape = head;
-        fdef.isSensor = true;
-
-        b2body.createFixture(fdef).setUserData("head");
+        b2body.createFixture(fdef).setUserData("cook");
     }
 }
