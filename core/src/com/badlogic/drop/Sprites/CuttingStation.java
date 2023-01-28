@@ -20,7 +20,6 @@ public class CuttingStation extends InteractiveTileObject {
     //Interactive Tile Object effectively acts as the parents class
     public CuttingStation(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
-
         fixture.setUserData("CuttingStation");
     }
 

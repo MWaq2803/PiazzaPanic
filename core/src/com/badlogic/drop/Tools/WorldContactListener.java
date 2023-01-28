@@ -1,7 +1,5 @@
 package com.badlogic.drop.Tools;
 
-import com.badlogic.drop.Screens.PantryScreen;
-import com.badlogic.drop.Screens.PlayScreen;
 import com.badlogic.gdx.physics.box2d.*;
 
 public class WorldContactListener implements ContactListener  {
@@ -29,16 +27,14 @@ public class WorldContactListener implements ContactListener  {
 
     @Override
     public void endContact(Contact contact) {
-
     }
 
     @Override
     public void preSolve(Contact contact, Manifold oldManifold) {
-
     }
 
     @Override
     public void postSolve(Contact contact, ContactImpulse impulse) {
-
     }
+
 }

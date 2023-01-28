@@ -1,16 +1,12 @@
 package com.badlogic.drop.Screens;
 
 import com.badlogic.drop.PiazzaPanic;
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -22,9 +18,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-
+/**
+ * MainMenuScreen is the class that displays the main menu once the game is first launched
+ * It contains the elements that allow the user to navigate to the different parts of the game
+ */
 public class MainMenuScreen extends ScreenAdapter {
-
     final PiazzaPanic game;
     OrthographicCamera camera;
     private Stage stage;
@@ -32,7 +30,10 @@ public class MainMenuScreen extends ScreenAdapter {
     private Batch batch;
     private Sprite sprite;
 
-
+    /**
+     * This is the constructor for the MainMenuScreen class. It sets up the elements to be displayed on screen
+     * @param game - the game object that this screen will be displayed in
+     */
     public MainMenuScreen(final PiazzaPanic game) {
         this.game = game;
         camera = new OrthographicCamera();
@@ -69,9 +70,13 @@ public class MainMenuScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-
     }
 
+    /**
+     * Renders the main menu screen
+     * Draws the background sprite and the stage containing the main menu elements
+     * @param delta The time in seconds since the last render.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -82,6 +87,12 @@ public class MainMenuScreen extends ScreenAdapter {
         stage.draw();
     }
 
+    /**
+     * Resizes the main menu screen
+     * Updates the viewport of the stage to match the new window size
+     * @param width - the new width of the window
+     * @param height - the new height of the window
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
@@ -89,7 +100,6 @@ public class MainMenuScreen extends ScreenAdapter {
 
     @Override
     public void hide() {
-
     }
 
     public void dispose () {

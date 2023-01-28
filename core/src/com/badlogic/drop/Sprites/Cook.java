@@ -4,15 +4,12 @@ import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Screens.PlayScreen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 
 public class Cook extends Sprite {
     public World world;
     public Body b2body;
     Texture cookTexture;
-
 
     public Cook(PlayScreen screen) {
         this.world = screen.getWorld();
@@ -27,7 +24,7 @@ public class Cook extends Sprite {
     }
     public void defineCook() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(32 / PiazzaPanic.PPM,200 / PiazzaPanic.PPM);
+        bdef.position.set(32 / PiazzaPanic.PPM,300 / PiazzaPanic.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
@@ -37,14 +34,6 @@ public class Cook extends Sprite {
 
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData("cook");
-/*this is pbb uneeded but i kept in so i can directly copy the tutorial - Oli*/
-//        EdgeShape head = new EdgeShape();
-//        head.set(new Vector2(-20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM), new Vector2(20 / PiazzaPanic.PPM, 60 / PiazzaPanic.PPM));
-//        fdef.shape = head;
-//        fdef.isSensor = true;
-//
-//        b2body.createFixture(fdef).setUserData("head");
-        /**/
     }
 
 
