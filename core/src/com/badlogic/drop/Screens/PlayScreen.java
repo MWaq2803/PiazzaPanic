@@ -20,9 +20,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class PlayScreen extends Game implements Screen {
-
     private PiazzaPanic game;
-    //Texture texture;
     private OrthographicCamera gamecam;
     private Viewport gamePort;
     private Hud hud;
@@ -37,12 +35,9 @@ public class PlayScreen extends Game implements Screen {
     private Box2DDebugRenderer b2dr;
     private Cook player;
 
-
-
     public PlayScreen(PiazzaPanic game) {
 
         this.game = game;
-        //texture = new Texture("bucket.png");
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(PiazzaPanic.V_WIDTH / PiazzaPanic.PPM + 2, PiazzaPanic.V_HEIGHT / PiazzaPanic.PPM + 2, gamecam);
         hud = new Hud(game.batch);
@@ -117,16 +112,13 @@ public class PlayScreen extends Game implements Screen {
         hud.stage.draw();
     }
 
-
     @Override
     public void create() {
-
     }
 
     @Override
     public void resize(int width, int height) {
         gamePort.update(width,height);
-
     }
 
     public TiledMap getMap() {
@@ -139,17 +131,14 @@ public class PlayScreen extends Game implements Screen {
 
     @Override
     public void pause() {
-
     }
 
     @Override
     public void resume() {
-
     }
 
     @Override
     public void hide() {
-
     }
 
     @Override
