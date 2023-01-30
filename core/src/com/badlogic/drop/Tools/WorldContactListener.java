@@ -5,6 +5,7 @@ import com.badlogic.drop.Screens.CuttingScreen;
 import com.badlogic.drop.Screens.FryingScreen;
 import com.badlogic.drop.Screens.PantryScreen;
 import com.badlogic.drop.Screens.ServingScreen;
+import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.drop.Sprites.Customer;
@@ -17,10 +18,12 @@ import com.badlogic.drop.Sprites.NPC;
 public class WorldContactListener implements ContactListener  {
     private PiazzaPanic game;
     private Stage stage;
+    protected Cook cook;
 
-    public WorldContactListener(PiazzaPanic game, Stage stage) {
+    public WorldContactListener(PiazzaPanic game, Stage stage,Cook cook) {
         this.game = game;
         this.stage = stage;
+        this.cook = cook;
     }
     /**
      * BeginContact is a method which acts when the sprite first touches the interactive tile object

@@ -66,7 +66,7 @@ public class PlayScreen extends MyScreen {
         player = new Cook(this);
         //initialise the player character
 
-        world.setContactListener(new WorldContactListener(game, stage));
+        world.setContactListener(new WorldContactListener(game, stage,player));
         //set the contact listener for the Box2D world, so we can detect collisions
 
         customer = new Customer(this, .32f, .32f);
