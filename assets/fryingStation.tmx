@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="2">
+ <tileset firstgid="1" source="../../terrain.tsx"/>
+ <layer id="1" name="Background" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztw0EJAAAIBDB92O/A/l2M4WeDZaqiqqqqqqqqqqqqqqrPt1VVVVVVVVVVVVVV9f8BA6a84g==
+  </data>
+ </layer>
+ <layer id="2" name="Graphics" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt2TEKgDAQRcEEvI+d9z+EBxILW5FE4cfMwHap9mFALQUAAAAAAAAAAAAAAAAA/m9f3h36nDvc6v1cu35yjj56ZPm6x1rbZlZ6ZNEjix5Z9MgySo9Zen39PtjaY9bnR48so9xXs9Ajix5Z9MiiRxY9svjenkWPLP7XAgCjOQDyFNkB
+  </data>
+ </layer>
+ <objectgroup id="3" name="Pan">
+  <object id="1" x="1024" y="608">
+   <polygon points="0,0 224,0 224,96 288,96 288,80 352,80 352,128 224,128 224,224 0,224"/>
+  </object>
+ </objectgroup>
+</map>
