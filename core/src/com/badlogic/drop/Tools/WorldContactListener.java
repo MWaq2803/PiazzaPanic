@@ -7,6 +7,8 @@ import com.badlogic.drop.Screens.PantryScreen;
 import com.badlogic.drop.Screens.ServingScreen;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.drop.Sprites.Customer;
+import com.badlogic.drop.Sprites.NPC;
 
 /**
  * WorldContactListener is a class that implements ContactListener interface
@@ -49,6 +51,15 @@ public class WorldContactListener implements ContactListener  {
         else if ((fixA.getUserData() == "Cook" && fixB.getUserData() == "ServingStation") || (fixA.getUserData() == "ServingStation" && fixB.getUserData() == "Cook")){
             System.out.println("The cook has collided with the serving station!");
             game.setScreen(new ServingScreen(game, stage));
+        }
+        else if ((fixA.getUserData() == "customer" && fixB.getUserData() == "Counter") || (fixA.getUserData() == "Counter" && fixB.getUserData() == "customer")){
+            System.out.println("The customer has collided with the counter!");
+            if(fixA.getUserData() == "customer"){
+                ((Customer)fixA.getUserData()).MakingOrder();
+            }
+            else{
+                ((Customer)fixB.getUserData()).MakingOrder();
+            }
         }
     }
 

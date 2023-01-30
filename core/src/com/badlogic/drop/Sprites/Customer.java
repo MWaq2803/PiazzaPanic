@@ -2,6 +2,8 @@ package com.badlogic.drop.Sprites;
 
 import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Screens.PlayScreen;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
@@ -9,9 +11,10 @@ import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.graphics.Texture;
 
-
 public class Customer extends NPC{
     private float stateTime;
+    private boolean setToDestroy;
+    private boolean destroyed;
     Texture customerTexture;
     public Customer(PlayScreen screen, float x, float y) {
         super(screen, x, y);
@@ -19,11 +22,32 @@ public class Customer extends NPC{
         customerTexture = new Texture("cook.png");
         setBounds(getX(),getY(),128/PiazzaPanic.PPM,128/PiazzaPanic.PPM);
         setRegion(customerTexture);
+        setToDestroy = false;
+        destroyed = false;
+
     }
 
     public void update(float dt){
         stateTime += dt;
-        setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y-getHeight()/2);
+
+        if(setToDestroy && !destroyed){
+            world.destroyBody(b2body);
+            destroyed = true;
+        }
+        else if (!destroyed) {
+            setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y-getHeight()/2);
+        }
+    }
+    public void OrderFulfilled(){
+        setToDestroy = true;
+    }
+    public void MakingOrder(){
+
+    }
+    public void draw(Batch batch){
+        if(!destroyed){
+            super.draw(batch);
+        }
     }
 
     @Override
@@ -39,6 +63,6 @@ public class Customer extends NPC{
         shape.setRadius(60 / PiazzaPanic.PPM);
 
         fdef.shape = shape;
-        b2body.createFixture(fdef).setUserData("cook");
+        b2body.createFixture(fdef).setUserData("customer");
     }
 }
