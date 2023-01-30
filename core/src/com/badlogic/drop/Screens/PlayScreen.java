@@ -20,6 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.badlogic.drop.Sprites.Customer;
 
 /**
  * The PlayScreen class is a screen that implements the libGDX Screen interface
@@ -42,6 +43,7 @@ public class PlayScreen extends MyScreen {
     private Box2DDebugRenderer b2dr;
     private B2WorldCreator creator;
     private Cook player;
+    private Customer customer;
 
     public PlayScreen(final PiazzaPanic game, Stage stage) {
         super(game,stage);
@@ -66,6 +68,8 @@ public class PlayScreen extends MyScreen {
 
         world.setContactListener(new WorldContactListener(game, stage));
         //set the contact listener for the Box2D world, so we can detect collisions
+
+        customer = new Customer(this, .32f, .32f);
 
     }
 
@@ -99,6 +103,7 @@ public class PlayScreen extends MyScreen {
         //updates the game state
 
         player.update(dt);
+        customer.update(dt);
         hud.update(dt);
 
         gamecam.position.x = player.b2body.getPosition().x;
@@ -123,6 +128,7 @@ public class PlayScreen extends MyScreen {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
+        customer.draw(game.batch);
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
