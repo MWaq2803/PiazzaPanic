@@ -1,6 +1,7 @@
 package com.badlogic.drop.Screens;
 
 import com.badlogic.drop.PiazzaPanic;
+import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -16,6 +17,7 @@ public abstract class MyScreen implements Screen {
     protected OrthographicCamera gamecam;
     protected Viewport gameport;
     protected Stage stage;
+
 
     public MyScreen(final PiazzaPanic game, Stage stage) {
         this.game = game;

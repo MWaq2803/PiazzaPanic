@@ -2,6 +2,7 @@ package com.badlogic.drop.Scenes;
 
 import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Screens.PlayScreen;
+import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -38,7 +39,12 @@ public class HudButton implements Disposable {
         skin = new Skin(Gdx.files.internal("metal-ui.json"));
         TextButton button = new TextButton("Back!", skin);
         button.toFront();
-        table.add(button).width(140).height(30).padTop(-450);
+        table.add(button).width(140).height(30).padTop(450);
+
+
+        TextButton button1 = new TextButton("Drop Top Item!", skin);
+        button.toFront();
+        table.add(button1).width(140).height(30).padTop(-450);
 
         //Checks if button is clicked
         button.addListener(new ClickListener() {
@@ -49,6 +55,7 @@ public class HudButton implements Disposable {
                 dispose();
             }
         });
+
         stage.addActor(table);
     }
 

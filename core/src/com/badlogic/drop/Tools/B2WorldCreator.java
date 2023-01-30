@@ -3,6 +3,8 @@ package com.badlogic.drop.Tools;
 import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Screens.MyScreen;
 import com.badlogic.drop.Sprites.*;
+import com.badlogic.drop.Sprites.PantrySprites.*;
+import com.badlogic.drop.Sprites.StationSprites.*;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;

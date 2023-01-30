@@ -2,16 +2,18 @@ package com.badlogic.drop.Sprites;
 
 import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Screens.MyScreen;
-import com.badlogic.drop.Screens.PlayScreen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.*;
+
+import java.util.Stack;
 
 public class Cook extends Sprite {
     public World world;
     public Body b2body;
     private Texture cookTexture;
     private MyScreen screen;
+    private Stack<String> inventory;
 
     public Cook(MyScreen screen) {
         this.screen = screen;
@@ -39,7 +41,21 @@ public class Cook extends Sprite {
 
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData("Cook");
+
+        inventory = new Stack<>();
     }
 
+    public void addToInventory(String item) {
+        inventory.push(item);
+        System.out.println("The inventory is now" + inventory);
+    }
 
+    public String removeFromInventory() {
+        if (!inventory.empty()) {
+            System.out.println("We are removing" + inventory.pop());
+            return inventory.pop();
+        } else {
+            return null;
+        }
+    }
 }

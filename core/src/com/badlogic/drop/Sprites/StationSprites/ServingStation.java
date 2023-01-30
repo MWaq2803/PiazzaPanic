@@ -1,7 +1,8 @@
-package com.badlogic.drop.Sprites;
+package com.badlogic.drop.Sprites.StationSprites;
 
 import com.badlogic.drop.Screens.MyScreen;
 import com.badlogic.drop.Screens.PlayScreen;
+import com.badlogic.drop.Sprites.InteractiveTileObject;
 import com.badlogic.gdx.math.Rectangle;
 
 /**
