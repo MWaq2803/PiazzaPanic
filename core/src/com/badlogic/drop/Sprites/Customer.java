@@ -30,7 +30,7 @@ public class Customer extends NPC{
 
     protected void defineNPC() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(32 / PiazzaPanic.PPM,200 / PiazzaPanic.PPM);
+        bdef.position.set(232 / PiazzaPanic.PPM,700 / PiazzaPanic.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
