@@ -43,10 +43,12 @@ public class Hud implements Disposable {
         table.setFillParent(true);
         //table is now size of stage
 
-        timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        BitmapFont font = new BitmapFont();
+        font.getData().setScale(2.0f);
+        timeLabel = new Label("TIME", new Label.LabelStyle(font, Color.WHITE));
+        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(font, Color.WHITE));
 
-        table.add(timeLabel).expandX().padTop(10);
+        table.add(timeLabel).expandX();
         table.row();
         table.add(countdownLabel).expandX();
         //add the time label to the table, expand it horizontally, and add some padding - add game timer label

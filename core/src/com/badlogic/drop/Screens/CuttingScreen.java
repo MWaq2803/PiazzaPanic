@@ -5,9 +5,7 @@ import com.badlogic.drop.Scenes.HudButton;
 import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.drop.Tools.B2WorldCreator;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -16,12 +14,8 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class PantryScreen extends MyScreen{
+public class CuttingScreen extends MyScreen{
     private int screenWidth = 1080;
     private int screenHeight = 720;
 
@@ -38,7 +32,7 @@ public class PantryScreen extends MyScreen{
     private Skin skin;
     private HudButton hud;
 
-    public PantryScreen(final PiazzaPanic game, Stage stage) {
+    public CuttingScreen(final PiazzaPanic game, Stage stage) {
         super(game,stage);
 
         // create our game HUD for score/timer
@@ -46,7 +40,7 @@ public class PantryScreen extends MyScreen{
 
         //Load our map and setup our map renderer
         maploader = new TmxMapLoader();
-        map = maploader.load("pantry.tmx");
+        map = maploader.load("cuttingStation.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1  / PiazzaPanic.PPM);
 
         //create our Box2D world, setting no gravity in X, -10 gravity in Y, and allow bodies to sleep

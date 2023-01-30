@@ -1,7 +1,10 @@
 package com.badlogic.drop.Tools;
 
 import com.badlogic.drop.PiazzaPanic;
+import com.badlogic.drop.Screens.CuttingScreen;
+import com.badlogic.drop.Screens.FryingScreen;
 import com.badlogic.drop.Screens.PantryScreen;
+import com.badlogic.drop.Screens.ServingScreen;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
@@ -33,19 +36,19 @@ public class WorldContactListener implements ContactListener  {
         }
         else if ((fixA.getUserData() == "Cook" && fixB.getUserData() == "Counter") || (fixA.getUserData() == "Counter" && fixB.getUserData() == "Cook")){
             System.out.println("The cook has collided with the counter!");
-            game.setScreen(new PantryScreen(game, stage));
+            //game.setScreen(new PantryScreen(game, stage));
         }
         else if ((fixA.getUserData() == "Cook" && fixB.getUserData() == "CuttingStation") || (fixA.getUserData() == "CuttingStation" && fixB.getUserData() == "Cook")){
             System.out.println("The cook has collided with the cutting station!");
-            game.setScreen(new PantryScreen(game, stage));
+            game.setScreen(new CuttingScreen(game, stage));
         }
         else if ((fixA.getUserData() == "Cook" && fixB.getUserData() == "FryingStation") || (fixA.getUserData() == "FryingStation" && fixB.getUserData() == "Cook")){
             System.out.println("The cook has collided with the frying station!");
-            game.setScreen(new PantryScreen(game, stage));
+            game.setScreen(new FryingScreen(game, stage));
         }
         else if ((fixA.getUserData() == "Cook" && fixB.getUserData() == "ServingStation") || (fixA.getUserData() == "ServingStation" && fixB.getUserData() == "Cook")){
             System.out.println("The cook has collided with the serving station!");
-            game.setScreen(new PantryScreen(game, stage));
+            game.setScreen(new ServingScreen(game, stage));
         }
     }
 

@@ -8,6 +8,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public abstract class MyScreen implements Screen {
@@ -20,7 +21,7 @@ public abstract class MyScreen implements Screen {
         this.game = game;
         this.stage = stage;
         gamecam = new OrthographicCamera();
-        gamecam.setToOrtho(false, 1920, 1040);
+        gamecam.setToOrtho(false, 2040, 1920);
         gameport = new FitViewport(PiazzaPanic.V_WIDTH / PiazzaPanic.PPM + 2,
                 PiazzaPanic.V_HEIGHT / PiazzaPanic.PPM + 2,
                 gamecam);

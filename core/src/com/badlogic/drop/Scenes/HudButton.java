@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class HudButton implements Disposable {
@@ -25,19 +26,19 @@ public class HudButton implements Disposable {
 
     public HudButton(SpriteBatch sb, final PiazzaPanic game) {
         this.game = game;
-        viewport = new FitViewport(PiazzaPanic.V_WIDTH, PiazzaPanic.V_HEIGHT, new OrthographicCamera());
+        viewport = new ScreenViewport();
         stage = new Stage(viewport, sb);
         Gdx.input.setInputProcessor(stage);
 
         //table to organise labels
         Table table = new Table();
-        table.top();
+        table.left();
         table.setFillParent(true);
 
         skin = new Skin(Gdx.files.internal("metal-ui.json"));
         TextButton button = new TextButton("Back!", skin);
         button.toFront();
-        table.add(button).width(140).height(60).padTop(20);
+        table.add(button).width(140).height(30).padTop(-450);
 
         //Checks if button is clicked
         button.addListener(new ClickListener() {
