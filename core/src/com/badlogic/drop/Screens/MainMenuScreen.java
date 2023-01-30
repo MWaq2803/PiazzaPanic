@@ -2,6 +2,8 @@ package com.badlogic.drop.Screens;
 
 import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -22,8 +24,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
  * MainMenuScreen is the class that displays the main menu once the game is first launched
  * It contains the elements that allow the user to navigate to the different parts of the game
  */
-public class MainMenuScreen extends ScreenAdapter {
-    final PiazzaPanic game;
+public class MainMenuScreen implements Screen {
+    private PiazzaPanic game;
     OrthographicCamera camera;
     private Stage stage;
     private Skin skin;
@@ -38,17 +40,22 @@ public class MainMenuScreen extends ScreenAdapter {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1280, 720);
+        //create a new Orthographic camera and set its properties and starting position
+
         batch = new SpriteBatch();
         sprite = new Sprite(new Texture(Gdx.files.internal("MainMenuScreen.jpg")));
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //set the image of the sprite to match the screen width and height
 
         skin = new Skin(Gdx.files.internal("metal-ui.json"));
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
+        //create a new skin object, stage object and set the input processor for the game to the stage object
 
         Table root = new Table();
         root.setFillParent(true);
         stage.addActor(root);
+        //create a new table object, and add it as an actor to the stage
 
         //Begin layout
         Label welcomeText = new Label("Welcome to Piazza Panic!", skin);
@@ -62,7 +69,7 @@ public class MainMenuScreen extends ScreenAdapter {
         //Checks if button is clicked
         textButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new PlayScreen(game));
+                game.setScreen(new PlayScreen(game, stage));
                 dispose();
             }
         });
@@ -96,6 +103,16 @@ public class MainMenuScreen extends ScreenAdapter {
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
     }
 
     @Override

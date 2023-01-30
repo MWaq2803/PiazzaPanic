@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="57">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="59">
  <tileset firstgid="1" source="terrain.tsx"/>
  <layer id="1" name="Background" width="100" height="60">
   <data encoding="base64" compression="zlib">
@@ -19,9 +19,6 @@
   <object id="52" x="704" y="0" width="352" height="16"/>
   <object id="53" x="1296" y="0" width="288" height="16"/>
  </objectgroup>
- <objectgroup id="10" name="Counter">
-  <object id="47" x="16" y="272" width="1568" height="80"/>
- </objectgroup>
  <objectgroup id="12" name="Pantry">
   <object id="55" x="17.3333" y="800.042" width="464" height="144"/>
  </objectgroup>
@@ -33,5 +30,12 @@
  </objectgroup>
  <objectgroup id="7" name="FryingStation">
   <object id="31" x="1120" y="800" width="320" height="144"/>
+ </objectgroup>
+ <objectgroup id="10" name="Counter">
+  <object id="47" x="16" y="272" width="1568" height="80"/>
+ </objectgroup>
+ <objectgroup id="14" name="Test">
+  <object id="57" x="1394" y="126" width="14" height="22"/>
+  <object id="58" x="1628" y="164"/>
  </objectgroup>
 </map>

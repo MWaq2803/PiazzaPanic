@@ -16,14 +16,21 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class PlayScreen extends Game implements Screen {
-    private PiazzaPanic game;
-    private OrthographicCamera gamecam;
-    private Viewport gamePort;
+/**
+ * The PlayScreen class is a screen that implements the libGDX Screen interface
+ * Represents the main game screen in the PiazzaPanic game
+ * Contains instance variables for game objects, such as TiledMap, World, Box2dDebugRenderer and Cook
+ * Provides methods for handling player input, updating the game world and objects and rendering the screen
+ */
+public class PlayScreen extends MyScreen {
     private Hud hud;
+    private Stage stage;
+    private Skin skin;
 
     //Tiled map variables
     private TmxMapLoader mapLoader;
@@ -33,36 +40,44 @@ public class PlayScreen extends Game implements Screen {
     //Box2d variables
     private World world;
     private Box2DDebugRenderer b2dr;
+    private B2WorldCreator creator;
     private Cook player;
 
-    public PlayScreen(PiazzaPanic game) {
+    public PlayScreen(final PiazzaPanic game, Stage stage) {
+        super(game,stage);
 
-        this.game = game;
-        gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(PiazzaPanic.V_WIDTH / PiazzaPanic.PPM + 2, PiazzaPanic.V_HEIGHT / PiazzaPanic.PPM + 2, gamecam);
+        //create our new HUD for timer
         hud = new Hud(game.batch);
 
+        //load our map and setup our map renderer
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("map.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1 / PiazzaPanic.PPM);
-        gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
 
+        //create our Box2D world, setting no gravity in X, Y and allow bodies to sleep
         world = new World(new Vector2(0, 0), true);
         b2dr = new Box2DDebugRenderer();
 
-        new B2WorldCreator(this);
+        creator = new B2WorldCreator(this);
+        //create the game world
 
         player = new Cook(this);
+        //initialise the player character
 
-        world.setContactListener(new WorldContactListener());
+        world.setContactListener(new WorldContactListener(game, stage));
+        //set the contact listener for the Box2D world, so we can detect collisions
 
     }
 
     @Override
     public void show() {
-
     }
 
+    /**
+     * Method to handle the user inputs in the game so player can control cook using arrow keys
+     * Player's acceleration is set to being decided by arrow keys and max speed is set at 2
+     * @param dt - delta time for frame-independent movements
+     */
     public void handleInput(float dt) {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2) {
             player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
@@ -81,12 +96,14 @@ public class PlayScreen extends Game implements Screen {
         handleInput(dt);
 
         world.step(1/60f, 6, 2);
+        //updates the game state
 
         player.update(dt);
         hud.update(dt);
 
         gamecam.position.x = player.b2body.getPosition().x;
         gamecam.position.y = player.b2body.getPosition().y;
+        //gamecam object position is updated to follow the player object
 
         gamecam.update();
         renderer.setView(gamecam);
@@ -113,12 +130,8 @@ public class PlayScreen extends Game implements Screen {
     }
 
     @Override
-    public void create() {
-    }
-
-    @Override
     public void resize(int width, int height) {
-        gamePort.update(width,height);
+        gameport.update(width,height);
     }
 
     public TiledMap getMap() {
@@ -147,5 +160,13 @@ public class PlayScreen extends Game implements Screen {
         renderer.dispose();
         world.dispose();
         b2dr.dispose();
+        hud.dispose();
     }
 }
+
+
+
+
+
+
+

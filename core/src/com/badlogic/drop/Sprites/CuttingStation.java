@@ -1,5 +1,6 @@
 package com.badlogic.drop.Sprites;
 
+import com.badlogic.drop.Screens.MyScreen;
 import com.badlogic.drop.Screens.PlayScreen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
@@ -15,12 +16,20 @@ import java.awt.*;
 import java.lang.annotation.Target;
 import java.util.Scanner;
 
+/**
+ * The class CuttingStation represents the cutting station in the game
+ * It is an extension of InteractiveTileObject and holds information about the cutting station itself
+ */
 public class CuttingStation extends InteractiveTileObject {
-    Pantry pantry;
-    //Interactive Tile Object effectively acts as the parents class
-    public CuttingStation(PlayScreen screen, Rectangle bounds) {
+    /**
+     * Constructor for CuttingStation class
+     * @param screen - a reference to the Playscreen instance
+     * @param bounds - the bounds of the rectangle of the cutting station on the map
+     */
+    public CuttingStation(MyScreen screen, Rectangle bounds) {
         super(screen, bounds);
         fixture.setUserData("CuttingStation");
+        //Setting the user data for the fixture to be CuttingStation
     }
 
 //    @Override
