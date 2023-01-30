@@ -25,7 +25,7 @@ public class PantryScreen extends MyScreen{
     private int screenWidth = 1080;
     private int screenHeight = 720;
 
-    //Tiled map variables
+    //Tiled map variable
     private TmxMapLoader maploader;
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;

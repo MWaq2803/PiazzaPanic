@@ -2,12 +2,12 @@ package com.badlogic.drop.Tools;
 
 import com.badlogic.drop.PiazzaPanic;
 import com.badlogic.drop.Screens.MyScreen;
-import com.badlogic.drop.Screens.PlayScreen;
 import com.badlogic.drop.Sprites.*;
-import com.badlogic.gdx.maps.Map;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 
@@ -18,6 +18,7 @@ import com.badlogic.gdx.physics.box2d.*;
 public class B2WorldCreator {
     /**
      * The constructor that creates the world objects
+     *
      * @param screen - the PlayScreen instance for the game
      */
     public B2WorldCreator(MyScreen screen) {
@@ -26,62 +27,72 @@ public class B2WorldCreator {
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
-        Body body;
-        System.out.println(map.getLayers().getCount());
+        Body body = null;
+        String name = map.getProperties().get("Name", String.class);
 
-        //create walls
+        createWalls(map, world, bdef, shape, fdef, body);
+        switch (name) {
+            case "Kitchen":
+                new Pantry(screen, createMethod1(map, 3));
+                new ServingStation(screen, createMethod1(map, 4));
+                new CuttingStation(screen, createMethod1(map, 5));
+                new FryingStation(screen, createMethod1(map, 6));
+                new Counter(screen, createMethod1(map, 7));
+                break;
+
+            case "Pantry":
+                new Lettuce(screen, createMethod(map, 2));
+                new Tomato(screen, createMethod(map, 3));
+                new Onion(screen, createMethod(map, 4));
+                new Patty(screen, createMethod(map, 5));
+                new Buns(screen, createMethod(map, 6));
+                break;
+
+            case "CuttingStation":
+                new Knife(screen, createMethod(map, 2));
+                break;
+
+            case "FryingStation":
+                new Pan(screen, createMethod(map, 2));
+                break;
+
+            case "ServingStation":
+                new Plate(screen, createMethod(map, 2));
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void createWalls(TiledMap map, World world, BodyDef bdef, PolygonShape shape, FixtureDef fdef, Body body) {
         for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
             bdef.type = BodyDef.BodyType.StaticBody;
-            //set the body type as static
             bdef.position.set((rect.getX() + rect.getWidth() / 2) / PiazzaPanic.PPM, (rect.getY() + rect.getHeight() / 2) / PiazzaPanic.PPM);
-
             body = world.createBody(bdef);
-            //create a body in the world
-
             shape.setAsBox(rect.getWidth() / 2 / PiazzaPanic.PPM, rect.getHeight() / 2 / PiazzaPanic.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
-            //set the shape of the body as a rectangle
         }
+    }
 
-        if (map.getLayers().getCount() > 7) {
-            //create pantry
-            for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-                new Pantry(screen, rect);
-            }
-
-            //create serving station
-            for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-                new ServingStation(screen, rect);
-            }
-
-            //create cutting station
-            for (MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-                new CuttingStation(screen, rect);
-            }
-
-            //create frying station
-            for (MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-                new FryingStation(screen, rect);
-            }
-
-
-            for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-                new Counter(screen,rect);
-            }
+    private Polygon createMethod(TiledMap map, int index) {
+        for (MapObject object : map.getLayers().get(index).getObjects().getByType(PolygonMapObject.class)) {
+            Polygon polygon = ((PolygonMapObject) object).getPolygon();
+            return polygon;
         }
+        return null;
+    }
 
+    private Rectangle createMethod1(TiledMap map, int index) {
+        for (MapObject object : map.getLayers().get(index).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+            return rect;
+        }
+        return null;
     }
 }
+
+
+
