@@ -1,23 +1,23 @@
 package com.badlogic.drop.Sprites;
 
-import com.badlogic.drop.PiazzaPanic;
+import com.badlogic.drop.Screens.MyScreen;
 import com.badlogic.drop.Screens.PlayScreen;
 import com.badlogic.gdx.math.Rectangle;
 
-import java.util.ArrayList;
-
-
+/**
+ * The class Pantry represents the pantry in the game
+ * It is an extension of InteractiveTileObject and holds information about the pantry itself
+ */
 public class Pantry extends InteractiveTileObject {
-    ArrayList<String> pantryContents;
-    public Pantry(PlayScreen screen, Rectangle bounds) {
+    /**
+     * Constructor for FryingStation class
+     * @param screen - a reference to the Playscreen instance
+     * @param bounds - the bounds of the rectangle of the frying station on the map
+     */
+    public Pantry(MyScreen screen, Rectangle bounds) {
         super(screen, bounds);
-        pantryContents = new ArrayList<>();
-        pantryContents.add("lettuce");
-        pantryContents.add("tomatoes");
-        pantryContents.add("onions");
-        pantryContents.add("patty");
-        pantryContents.add("buns");
         fixture.setUserData("Pantry");
+        //Setting the user data for the fixture to be Pantry
     }
 
 }

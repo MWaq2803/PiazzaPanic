@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="10">
+ <properties>
+  <property name="Name" value="Pantry"/>
+ </properties>
+ <tileset firstgid="1" source="../../terrain.tsx"/>
+ <layer id="1" name="Background" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt10EOgjAQBVBc6Lm5r1dw4cpEScGZSVGpb/E2hbRlfhjKfJ6mGQCg4Xp51RpbXsvMvTVfj3Uz+zmC5+fZevZlzbJzV8db+xs1i2oe0Vr0ziO7/hFFe0Pr2rua7JHHyFlUapDpGZU81r4f8ojlUa37Vh6VPY+iRx69c6r2wRGs1bFy3o32ssh4pQ+OoNf7kalpdPxf/jn2zCNyr/PVZ/N43CeP38kjW3d5AAAAAACjup0AAAAAAAAAAAAAAOD77hro7Pw=
+  </data>
+ </layer>
+ <layer id="3" name="Graphics" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt08ENgkAQhlHMHijPTqzHu91YlSEe9CCwMKNZ2feS/z7LF4YBAAAAAAAAAAAAAACAXl3Lc7RBi7boEXMv65tzOdWv1q281puaFktNsnu8t+ityZYWc02iPT59/7UdlR5tOXKP85izLaJ365HXI+N2PXJ6ZN2vhx7Rt7TYI4se/o/oW/T4zx6/lHl/pMVEj3x7W0z0AAAAAOAbHlMslKQ=
+  </data>
+ </layer>
+ <objectgroup id="4" name="Lettuce">
+  <object id="1" x="48" y="560">
+   <polygon points="0,0 144,0 144,16 160,16 160,32 176,32 176,192 160,192 160,208 144,208 144,224 0,224 0,208 -16,208 -16,192 -32,192 -32,32 -16,32 -16,16 0,16"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Tomato">
+  <object id="2" x="288" y="560">
+   <polygon points="0,0 80,0 80,-48 112,-48 112,-32 96,-32 96,0 176,0 176,224 0,224"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="Onion">
+  <object id="3" x="544" y="592">
+   <polygon points="0,0 64,0 64,-16 80,-16 80,-32 128,-32 128,-16 144,-16 144,0 208,0 208,192 0,192"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="Patty">
+  <object id="4" x="896" y="624">
+   <polygon points="0,0 288,0 288,112 0,112"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="Buns">
+  <object id="5" x="1360" y="624">
+   <polygon points="0,0 128,0 128,16 144,16 144,32 160,32 160,64 160,128 -32,128 -32,32 -16,32 -16,16 0,16"/>
+  </object>
+ </objectgroup>
+</map>

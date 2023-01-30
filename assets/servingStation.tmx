@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="60" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="2">
+ <properties>
+  <property name="Name" value="ServingStation"/>
+ </properties>
+ <tileset firstgid="1" source="../../terrain.tsx"/>
+ <layer id="1" name="Background" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAIAzA4UIGq+TeDDJ42aaYqqqqqqqqqqqqqqqr6fFtVVVVVVVVVVVVVVf8fwpw4PA==
+  </data>
+ </layer>
+ <layer id="2" name="Graphics" width="100" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt1ksKg0AURUEnLi/730aWEDIIPCSxP2rnJV0F4kThygF1WQAAAAAAAAAAAAAAAADgN93X9+cat7XtOLJvFr09Wlv0NHlu0aN8T2+LliavFnrsX3+0RU2T2EKPz9ee1aLURI9yj7Nb7DXRQ48sts+ux/fVPLse4+iRix65ZOtRu+lf6ZFLxh5x12z0yKX23TCyRdw1m5Z39agWcddsWr+dI1rEXbPp+Ze5ukXcNZvef8srW8RdAAC9HmOd7JE=
+  </data>
+ </layer>
+ <objectgroup id="3" name="Plate">
+  <object id="1" x="704" y="560">
+   <polygon points="0,0 192,0 272,80 272,240 192,320 0,320 -80,240 -80,80"/>
+  </object>
+ </objectgroup>
+</map>
