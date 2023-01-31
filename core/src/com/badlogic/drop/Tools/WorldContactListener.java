@@ -57,12 +57,12 @@ public class WorldContactListener implements ContactListener  {
         }
         else if ((fixA.getUserData() == "customer" && fixB.getUserData() == "Counter") || (fixA.getUserData() == "Counter" && fixB.getUserData() == "customer")){
             System.out.println("The customer has collided with the counter!");
-            if(fixA.getUserData() == "customer"){
+            /*if(fixA.getUserData() == "customer"){
                 ((Customer)fixA.getUserData()).MakingOrder();
             }
-            else{
+            else if(fixB.getUserData() == "customer"){
                 ((Customer)fixB.getUserData()).MakingOrder();
-            }
+            }*/
         }
     }
 

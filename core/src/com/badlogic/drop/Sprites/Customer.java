@@ -42,7 +42,7 @@ public class Customer extends NPC{
         setToDestroy = true;
     }
     public void MakingOrder(){
-
+            System.out.println("Customer is making an order");
     }
     public void draw(Batch batch){
         if(!destroyed){
