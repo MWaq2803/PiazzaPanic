@@ -25,6 +25,8 @@ public class Hud implements Disposable {
 
     Label timeLabel;
     Label countdownLabel;
+    Label repPointsLabel;
+    Label repPointsNoLabel;
 
     /**
      * Constructor for the HUD class
@@ -48,9 +50,13 @@ public class Hud implements Disposable {
         timeLabel = new Label("TIME", new Label.LabelStyle(font, Color.WHITE));
         countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(font, Color.WHITE));
 
+        repPointsLabel = new Label("REP POINTS", new Label.LabelStyle(font,Color.WHITE));
+        repPointsNoLabel = new Label("3", new Label.LabelStyle(font, Color.WHITE));
         table.add(timeLabel).expandX();
+        table.add(repPointsLabel).expandX();
         table.row();
         table.add(countdownLabel).expandX();
+        table.add(repPointsNoLabel).expandX();
         //add the time label to the table, expand it horizontally, and add some padding - add game timer label
 
         stage.addActor(table);
