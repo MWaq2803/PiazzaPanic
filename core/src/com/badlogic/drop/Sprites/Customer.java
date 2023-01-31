@@ -36,6 +36,7 @@ public class Customer extends NPC{
         }
         else if (!destroyed) {
             setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y-getHeight()/2);
+            b2body.setLinearVelocity(velocity);
         }
     }
     public void OrderFulfilled(){
@@ -54,7 +55,7 @@ public class Customer extends NPC{
 
     protected void defineNPC() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(232 / PiazzaPanic.PPM,700 / PiazzaPanic.PPM);
+        bdef.position.set(575 / PiazzaPanic.PPM,900 / PiazzaPanic.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
