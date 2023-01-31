@@ -50,12 +50,12 @@ public class Cook extends Sprite {
         System.out.println("The inventory is now" + inventory);
     }
 
-    public String removeFromInventory() {
-        if (!inventory.empty()) {
-            System.out.println("We are removing" + inventory.pop());
-            return inventory.pop();
-        } else {
-            return null;
-        }
+    public void removeFromInventory() {
+        inventory.pop();
+        System.out.println("The inventory is now" + inventory);
+    }
+
+    public String getIngredients(){
+        return inventory.peek();
     }
 }

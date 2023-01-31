@@ -1,6 +1,7 @@
 package com.badlogic.drop.Scenes;
 
 import com.badlogic.drop.PiazzaPanic;
+import com.badlogic.drop.Screens.MyScreen;
 import com.badlogic.drop.Screens.PlayScreen;
 import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.gdx.Gdx;
@@ -51,6 +52,18 @@ public class HudButton implements Disposable {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 System.out.println("Button clicked");
+                game.setScreen(new PlayScreen(game, stage));
+                dispose();
+            }
+        });
+
+        //Cook cook = new Cook(screen);
+
+        button1.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                System.out.println("Drop clicked");
+                //cook.removeFromInventory();
                 game.setScreen(new PlayScreen(game, stage));
                 dispose();
             }

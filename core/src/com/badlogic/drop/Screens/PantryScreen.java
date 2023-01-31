@@ -16,6 +16,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -148,6 +149,10 @@ public class PantryScreen extends MyScreen {
     public void handleInput(float dt, Cook cook) {
         if (Gdx.input.isKeyPressed(Input.Keys.Q) && !qPressed) {
             cook.addToInventory("Lettuce");
+            //Dialog msg = new Dialog("lettuce added" + cook.getIngredients, skin);
+            //msg.button("ok");
+            //stage.addActor(msg);
+            //msg.show(stage);
             qPressed = true;
         } else if (!Gdx.input.isKeyPressed(Input.Keys.Q)) {
             qPressed = false;
