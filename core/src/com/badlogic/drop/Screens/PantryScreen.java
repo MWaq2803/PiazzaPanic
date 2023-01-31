@@ -45,6 +45,7 @@ public class PantryScreen extends MyScreen {
     private boolean ePressed = false;
     private boolean rPressed = false;
     private boolean tPressed = false;
+    private boolean xPressed = false;
 
     public PantryScreen(final PiazzaPanic game, Stage stage) {
         super(game, stage);
@@ -147,6 +148,12 @@ public class PantryScreen extends MyScreen {
     }
 
     public void handleInput(float dt, Cook cook) {
+        if (Gdx.input.isKeyPressed(Input.Keys.X) && !xPressed) {
+            cook.removeFromInventory();
+            xPressed = true;
+        } else if (!Gdx.input.isKeyPressed(Input.Keys.X)) {
+            xPressed = false;
+        }
         if (Gdx.input.isKeyPressed(Input.Keys.Q) && !qPressed) {
             cook.addToInventory("Lettuce");
             //Dialog msg = new Dialog("lettuce added" + cook.getIngredients, skin);

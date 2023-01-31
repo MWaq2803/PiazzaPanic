@@ -51,8 +51,13 @@ public class Cook extends Sprite {
     }
 
     public void removeFromInventory() {
-        inventory.pop();
-        System.out.println("The inventory is now" + inventory);
+        if(inventory.empty() == true){
+            System.out.println("The inventory is empty" + inventory);
+        }
+        else {
+            inventory.pop();
+            System.out.println("The inventory is now" + inventory);
+        }
     }
 
     public String getIngredients(){
