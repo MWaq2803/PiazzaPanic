@@ -1,6 +1,7 @@
 package com.badlogic.drop.Sprites;
 
 import com.badlogic.drop.PiazzaPanic;
+import com.badlogic.drop.Screens.CuttingScreen;
 import com.badlogic.drop.Screens.MyScreen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -59,6 +60,9 @@ public class Cook extends Sprite {
             System.out.println("The inventory is now" + inventory);
         }
     }
+    //public void moveInventoryItems(String item, CuttingScreen cuttingScreen){
+
+    //}
 
     public String getIngredients(){
         return inventory.peek();
