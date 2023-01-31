@@ -44,6 +44,11 @@ public class PlayScreen extends MyScreen {
     private B2WorldCreator creator;
     private Cook player;
     private Customer customer;
+    private Customer customer1;
+    private Customer customer2;
+    private Customer customer3;
+    private Customer customer4;
+
 
     public PlayScreen(final PiazzaPanic game, Stage stage) {
         super(game,stage);
@@ -70,6 +75,10 @@ public class PlayScreen extends MyScreen {
         //set the contact listener for the Box2D world, so we can detect collisions
 
         customer = new Customer(this, .32f, .32f);
+        customer1 = new Customer(this, .32f, .32f);
+        customer2 = new Customer(this, .32f, .32f);
+        customer3 = new Customer(this, .32f, .32f);
+        customer4 = new Customer(this, .32f, .32f);
 
     }
 
@@ -104,6 +113,10 @@ public class PlayScreen extends MyScreen {
 
         player.update(dt);
         customer.update(dt);
+        customer1.update(dt);
+        customer2.update(dt);
+        customer3.update(dt);
+        customer4.update(dt);
         hud.update(dt);
 
         gamecam.position.x = player.b2body.getPosition().x;
@@ -129,6 +142,10 @@ public class PlayScreen extends MyScreen {
         game.batch.begin();
         player.draw(game.batch);
         customer.draw(game.batch);
+        customer1.draw(game.batch);
+        customer2.draw(game.batch);
+        customer3.draw(game.batch);
+        customer4.draw(game.batch);
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
