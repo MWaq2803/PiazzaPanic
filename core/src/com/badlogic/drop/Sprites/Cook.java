@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.*;
 
+import java.lang.reflect.Array;
 import java.util.Stack;
 
 public class Cook extends Sprite {
@@ -15,6 +16,7 @@ public class Cook extends Sprite {
     private Texture cookTexture;
     private MyScreen screen;
     private Stack<String> inventory;
+
 
     public Cook(MyScreen screen) {
         this.screen = screen;
@@ -60,11 +62,9 @@ public class Cook extends Sprite {
             System.out.println("The inventory is now" + inventory);
         }
     }
-    //public void moveInventoryItems(String item, CuttingScreen cuttingScreen){
 
-    //}
 
-    public String getIngredients(){
-        return inventory.peek();
+    public void  topIngredients(){
+        System.out.println(inventory.peek());
     }
 }

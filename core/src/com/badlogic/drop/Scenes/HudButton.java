@@ -61,8 +61,8 @@ public class HudButton implements Disposable {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 System.out.println("Drop clicked");
-                Cook cook = new Cook(new PlayScreen(game, stage));
-                cook.removeFromInventory();
+                //Cook cook = new Cook(new PlayScreen(game, stage));
+                //cook.removeFromInventory();
             }
         });
 

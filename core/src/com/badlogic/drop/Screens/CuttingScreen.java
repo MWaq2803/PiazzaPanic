@@ -5,6 +5,7 @@ import com.badlogic.drop.Scenes.HudButton;
 import com.badlogic.drop.Sprites.Cook;
 import com.badlogic.drop.Tools.B2WorldCreator;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -31,6 +32,7 @@ public class CuttingScreen extends MyScreen{
     private B2WorldCreator creator;
     private Skin skin;
     private HudButton hud;
+    private boolean qPressed = false;
 
     public CuttingScreen(final PiazzaPanic game, Stage stage) {
         super(game,stage);
@@ -49,6 +51,8 @@ public class CuttingScreen extends MyScreen{
         b2dr = new Box2DDebugRenderer();
 
         creator = new B2WorldCreator(this);
+
+        player = new Cook(this);
 
         skin = new Skin(Gdx.files.internal("metal-ui.json"));
 
@@ -72,6 +76,7 @@ public class CuttingScreen extends MyScreen{
 
     public void update(float dt) {
         hud.update(dt);
+        handleInput(dt, player);
         //takes 1 step in the physics simulation (60x per second)
         world.step(1/60f, 6, 2);
 
@@ -131,10 +136,20 @@ public class CuttingScreen extends MyScreen{
 
     }
 
+    public void handleInput(float dt, Cook cook) {
+        if (Gdx.input.isKeyPressed(Input.Keys.Q) && !qPressed) {
+            cook.removeFromInventory();
+            qPressed = true;
+        } else if (!Gdx.input.isKeyPressed(Input.Keys.Q)) {
+            qPressed = false;
+        }
+    }
+
+
+
     @Override
     public void dispose() {
         hud.dispose();
 
     }
 }
-
