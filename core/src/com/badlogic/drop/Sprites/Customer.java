@@ -19,7 +19,7 @@ public class Customer extends NPC{
     public Customer(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         stateTime = 0;
-        customerTexture = new Texture("cook.png");
+        customerTexture = new Texture("customer.png");
         setBounds(getX(),getY(),128/PiazzaPanic.PPM,128/PiazzaPanic.PPM);
         setRegion(customerTexture);
         setToDestroy = false;
