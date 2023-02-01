@@ -14,7 +14,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * The class Hud represents the Heads Up Display in the game which displays a timer in game
- * It contains a Stage object that displays the time count as a Label object
+ * It contains a Stage object that displays the time count as a Label object and Reputation points
  */
 public class Hud implements Disposable {
     public Stage stage;

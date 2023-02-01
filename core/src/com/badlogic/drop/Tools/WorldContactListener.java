@@ -55,8 +55,6 @@ public class WorldContactListener implements ContactListener  {
             System.out.println("The cook has collided with the serving station!");
             game.setScreen(new ServingScreen(game, stage));
         }
-        else if ((fixA.getUserData() == "customer" && fixB.getUserData() == "Counter") || (fixA.getUserData() == "Counter" && fixB.getUserData() == "customer")){
-            System.out.println("The customer has collided with the counter!");
             //this does not work because it tries to parse a string to a class ¯\_(ツ)_/¯ (☞ﾟヮﾟ)☞
             /*if(fixA.getUserData() == "customer"){
                 ((Customer)fixA.getUserData()).MakingOrder();
@@ -65,7 +63,7 @@ public class WorldContactListener implements ContactListener  {
                 ((Customer)fixB.getUserData()).MakingOrder();
             }*/
         }
-    }
+
 
     @Override
     public void endContact(Contact contact) {

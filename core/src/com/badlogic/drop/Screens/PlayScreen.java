@@ -30,8 +30,6 @@ import com.badlogic.drop.Sprites.Customer;
  */
 public class PlayScreen extends MyScreen {
     private Hud hud;
-    private Stage stage;
-    private Skin skin;
 
     //Tiled map variables
     private TmxMapLoader mapLoader;

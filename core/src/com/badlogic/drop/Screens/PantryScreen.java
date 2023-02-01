@@ -16,6 +16,11 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+/**
+ * PantryScreen is a screen in the game which displays the pantry
+ * It extends the MyScreen class and contains variables for tiled map and Box2D, as well as a player
+ * There are also methods for handling input, to pick the ingredient, and disposing of resources
+ */
 public class PantryScreen extends MyScreen {
     private int screenWidth = 1080;
     private int screenHeight = 720;
@@ -40,6 +45,11 @@ public class PantryScreen extends MyScreen {
     private boolean tPressed = false;
     private boolean xPressed = false;
 
+    /**
+     * Constructor for Pantry that initialises the screen with a game instance
+     * @param game
+     * @param stage
+     */
     public PantryScreen(final PiazzaPanic game, Stage stage) {
         super(game, stage);
 
@@ -58,7 +68,7 @@ public class PantryScreen extends MyScreen {
 
         creator = new B2WorldCreator(this);
 
-        player = new Cook(this);
+        player = new Cook(this); //initialise new player so we can pick ingredient
 
         skin = new Skin(Gdx.files.internal("metal-ui.json"));
 
@@ -140,6 +150,13 @@ public class PantryScreen extends MyScreen {
 
     }
 
+    /**
+     * Method to add ingredients to the inventory
+     * Use the keys 'Q', 'W', 'E', 'R', 'T' to add 'Lettuce', 'Tomato', 'Onion', 'Patty', 'Buns' respectively
+     * Use the key 'X' to remove ingredient from inventory
+     * @param dt
+     * @param cook
+     */
     public void handleInput(float dt, Cook cook) {
         if (Gdx.input.isKeyPressed(Input.Keys.X) && !xPressed) {
             cook.removeFromInventory();

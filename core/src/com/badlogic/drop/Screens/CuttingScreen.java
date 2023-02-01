@@ -16,6 +16,11 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+/**
+ * CuttingScreen is a screen in the game which displays the cutting station
+ * It extends the MyScreen class and contains variables for tiled map and Box2D, as well as a player
+ * There are also methods for handling input, to cut the ingredient, and disposing of resources
+ */
 public class CuttingScreen extends MyScreen{
     private int screenWidth = 1080;
     private int screenHeight = 720;
@@ -34,6 +39,11 @@ public class CuttingScreen extends MyScreen{
     private HudButton hud;
     private boolean qPressed = false;
 
+    /**
+     * Constructor for CuttingScreen that initialises the screen with a game instance
+     * @param game
+     * @param stage
+     */
     public CuttingScreen(final PiazzaPanic game, Stage stage) {
         super(game,stage);
 
@@ -58,11 +68,19 @@ public class CuttingScreen extends MyScreen{
 
     }
 
+    /**
+     * Gets the world for Box2D
+     * @return the Box2D world
+     */
     @Override
     public World getWorld() {
         return world;
     }
 
+    /**
+     * Gets the tiled map for the cutting station
+     * @return the tiled map
+     */
     @Override
     public TiledMap getMap() {
         return map;
