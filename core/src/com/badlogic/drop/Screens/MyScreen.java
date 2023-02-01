@@ -12,6 +12,10 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+/**
+ * An abstract class representing a screen in a game
+ * This class implements the Screen interface and provides basic screen functionality
+ */
 public abstract class MyScreen implements Screen {
     protected PiazzaPanic game;
     protected OrthographicCamera gamecam;
@@ -19,11 +23,17 @@ public abstract class MyScreen implements Screen {
     protected Stage stage;
 
 
+    /**
+     * Constructor for the MyScreen class
+     * @param game
+     * @param stage
+     */
     public MyScreen(final PiazzaPanic game, Stage stage) {
         this.game = game;
         this.stage = stage;
         gamecam = new OrthographicCamera();
         gamecam.setToOrtho(false, 2040, 1920);
+        //create new gameport with the following dimensions
         gameport = new FitViewport(PiazzaPanic.V_WIDTH / PiazzaPanic.PPM + 2,
                 PiazzaPanic.V_HEIGHT / PiazzaPanic.PPM + 2,
                 gamecam);
@@ -35,9 +45,22 @@ public abstract class MyScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
     }
 
+    /**
+     * Abstract method to retrieve World object for this screen
+     * @return The World object for this screen
+     */
     public abstract World getWorld();
 
+    /**
+     * Abstract method to retrieve TiledMap for this screen
+     * @return The TiledMap for this screen
+     */
     public abstract TiledMap getMap();
 
+    /**
+     * Abstract method to resize the screen
+     * @param width
+     * @param height
+     */
     public abstract void resize(int width, int height);
 }

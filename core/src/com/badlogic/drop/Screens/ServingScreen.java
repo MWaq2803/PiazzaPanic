@@ -15,6 +15,11 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+/**
+ * ServingScreen is a screen in the game which displays the serving station
+ * It extends the MyScreen class and contains variables for tiled map and Box2D, as well as a player
+ * There are also methods for handling input, to serve the dish, and disposing of resources
+ */
 public class ServingScreen extends MyScreen{
     private int screenWidth = 1080;
     private int screenHeight = 720;
@@ -32,6 +37,11 @@ public class ServingScreen extends MyScreen{
     private Skin skin;
     private HudButton hud;
 
+    /**
+     * Constructor for ServingScreen that initialises the screen with a game instance
+     * @param game
+     * @param stage
+     */
     public ServingScreen(final PiazzaPanic game, Stage stage) {
         super(game,stage);
 

@@ -15,6 +15,11 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+/**
+ * FryingScreen is a screen in the game which displays the frying station
+ * It extends the MyScreen class and contains variables for tiled map and Box2D, as well as a player
+ * There are also methods for handling input, to fry the ingredient, and disposing of resources
+ */
 public class FryingScreen extends MyScreen{
     private int screenWidth = 1080;
     private int screenHeight = 720;
@@ -23,7 +28,6 @@ public class FryingScreen extends MyScreen{
     private TmxMapLoader maploader;
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
-    private Cook player;
 
     //Box2d variables
     private World world;
@@ -32,6 +36,11 @@ public class FryingScreen extends MyScreen{
     private Skin skin;
     private HudButton hud;
 
+    /**
+     * Constructor for FryingScreen that initialises the screen with a game instance
+     * @param game
+     * @param stage
+     */
     public FryingScreen(final PiazzaPanic game, Stage stage) {
         super(game,stage);
 
@@ -54,11 +63,19 @@ public class FryingScreen extends MyScreen{
 
     }
 
+    /**
+     * Gets the world for Box2D
+     * @return the Box2D world
+     */
     @Override
     public World getWorld() {
         return world;
     }
 
+    /**
+     * Gets the tiled map for the cutting station
+     * @return the tiled map
+     */
     @Override
     public TiledMap getMap() {
         return map;

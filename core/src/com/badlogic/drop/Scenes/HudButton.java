@@ -18,14 +18,24 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+/**
+ * The HudButton class is responsible for creating the UI buttons in the game and handling their actions
+ * Implements Disposable interface, which means it can be disposed to free up resources
+ * It has two buttons "Back" and "Drop Top Item"
+ * The former leads you from the intermediate screen back to the playscreen
+ * The latter drops the top item from inventory - not currently working
+ */
 public class HudButton implements Disposable {
     public Stage stage;
     private Viewport  viewport;
-
-    private TextButton button;
     private Skin skin;
     private PiazzaPanic game;
 
+    /**
+     * Constructor for the HudButton class
+     * @param sb - spritebatch to render UI elements
+     * @param game
+     */
     public HudButton(SpriteBatch sb, final PiazzaPanic game) {
         this.game = game;
         viewport = new ScreenViewport();
@@ -38,11 +48,13 @@ public class HudButton implements Disposable {
         table.setFillParent(true);
 
         skin = new Skin(Gdx.files.internal("metal-ui.json"));
+
+        //Creates a new button with the label "Back!" and adds it to the table
         TextButton button = new TextButton("Back!", skin);
         button.toFront();
         table.add(button).width(140).height(30).padTop(450);
 
-
+        //Creates a new button with the label "Drop Top Item!" and adds it to the table
         TextButton button1 = new TextButton("Drop Top Item!", skin);
         button.toFront();
         table.add(button1).width(140).height(30).padTop(-450);
@@ -51,7 +63,7 @@ public class HudButton implements Disposable {
         button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                System.out.println("Button clicked");
+                //Sets the game screen to a new Playscreen and disposes of current screen
                 game.setScreen(new PlayScreen(game, stage));
                 dispose();
             }
@@ -65,7 +77,6 @@ public class HudButton implements Disposable {
                 //cook.removeFromInventory();
             }
         });
-
         stage.addActor(table);
     }
 
